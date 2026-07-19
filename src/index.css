@@ -1,0 +1,32 @@
+/* index.css */
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+/* Make media responsive */
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Buttons and inputs inherit the font */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
