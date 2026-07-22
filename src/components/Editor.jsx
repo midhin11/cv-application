@@ -53,8 +53,8 @@ export default function Editor({details, workexDetails, handleDetailsChange, han
                 <input type="text" name="end-date" id="end-date" value={workexDetails.endDate} onChange={handleWorkexChange}/>
             </div>
             <div>
-                <label htmlFor="job-desc">About role: </label>
-                <input type="text" name="job-desc" id="job-desc" value={workexDetails.jobDesc} onChange={handleWorkexChange}/>
+                <label htmlFor="job-desc">Job Description: </label>
+                <textarea type="text" name="job-desc" id="job-desc" value={workexDetails.jobDesc} onChange={handleWorkexChange}></textarea>
             </div>
         </div>
         

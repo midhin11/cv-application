@@ -33,10 +33,6 @@ label {
   text-align: right;
 }
 
-label[for="about"] {
-  text-align: left;
-}
-
 .work-experience-info label {
   width: 100px;
 }
@@ -57,13 +53,14 @@ h1, h3, h4 {
   text-align: center;
 }
 
-.summary-edit > label{
+.summary-edit > label, label[for="job-desc"]{
   display: block;
   margin-bottom: 3px;
   width: 100%;
+  text-align: left;
 } 
 
-.summary-edit textarea {
+.summary-edit textarea, #job-desc {
   width: 450px;
   height: 100px;
   padding: 5px 8px;
