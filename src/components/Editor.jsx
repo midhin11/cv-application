@@ -29,12 +29,12 @@ export default function Editor({details, workexDetails, handleDetailsChange, han
         </div>
 
         <div className='summary-edit'>
-            <label htmlFor='about'>About </label>
+            <label htmlFor='about'>About you: </label>
             <textarea type="text" name="about" id="about" value={details.about} onChange={handleDetailsChange}></textarea>
         </div>  
       </div>
 
-        <div className="work-experience-info">
+        <div className="work-experience-edit">
             <h3>Work Experience</h3>
             <div>
                 <label htmlFor="role">Role: </label>
@@ -45,16 +45,16 @@ export default function Editor({details, workexDetails, handleDetailsChange, han
                 <input type="text" name="company" id="company" value={workexDetails.company} onChange={handleWorkexChange}/>
             </div>
             <div>
-                <label htmlFor="start-date">Start Date: </label>
-                <input type="text" name="start-date" id="start-date" value={workexDetails.startDate} onChange={handleWorkexChange}/>
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="date" name="startDate" id="startDate" value={workexDetails.startDate} onChange={handleWorkexChange}/>
             </div>
             <div>
-                <label htmlFor="end-date">End Date: </label>
-                <input type="text" name="end-date" id="end-date" value={workexDetails.endDate} onChange={handleWorkexChange}/>
+                <label htmlFor="endDate">End Date: </label>
+                <input type="date" name="endDate" id="endDate" value={workexDetails.endDate} onChange={handleWorkexChange}/>
             </div>
             <div>
-                <label htmlFor="job-desc">Job Description: </label>
-                <textarea type="text" name="job-desc" id="job-desc" value={workexDetails.jobDesc} onChange={handleWorkexChange}></textarea>
+                <label htmlFor="jobDesc">Job Description: </label>
+                <textarea type="text" name="jobDesc" id="jobDesc" value={workexDetails.jobDesc} onChange={handleWorkexChange}></textarea>
             </div>
         </div>
         

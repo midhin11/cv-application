@@ -6,22 +6,26 @@
   width: 100vw;
   min-height: 100vh;
   font-size: 16px;
+  padding: 0px 20px;
 }
 
 
 .editor {
   border: 4px solid blue;
   padding: 25px;
+  flex-grow: 1;
 }
 
 .preview {
   border: 4px solid green;
   padding: 0px 30px;
+  width: 100%;
+  max-width: 794px;
 }
 
 /* Editor */
 
-.generalInfo > div, .summary-edit, .work-experience-info > div  {
+.generalInfo > div, .summary-edit, .work-experience-edit > div  {
   margin-bottom: 10px;
   font-size: 16px;
 }
@@ -33,7 +37,7 @@ label {
   text-align: right;
 }
 
-.work-experience-info label {
+.work-experience-edit label {
   width: 100px;
 }
 
@@ -45,7 +49,7 @@ input {
   width: 350px;
 } 
 
-.work-experience-info input {
+.work-experience-edit input {
   width: 330px;
 }
 
@@ -53,14 +57,14 @@ h1, h3, h4 {
   text-align: center;
 }
 
-.summary-edit > label, label[for="job-desc"]{
+.summary-edit > label, label[for="jobDesc"]{
   display: block;
   margin-bottom: 3px;
   width: 100%;
   text-align: left;
 } 
 
-.summary-edit textarea, #job-desc {
+.summary-edit textarea, #jobDesc {
   width: 450px;
   height: 100px;
   padding: 5px 8px;
@@ -98,4 +102,25 @@ h2 {
 li {
   display: inline;
   list-style: none;
+}
+
+.workex-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-right: 20px;
+}
+
+.role-company + div{
+  align-self: center;
+}
+
+.company{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.role {
+  font-style: italic;
 }
