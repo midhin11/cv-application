@@ -9,6 +9,25 @@ App
 ├── Editor
 └── Preview
 ```
+```
+App
+│
+├── Editor
+│   ├── GeneralInfoEditor
+│   ├── SummaryEditor
+│   └── WorkExperienceEditor
+│         ├── WorkExperienceItem
+│         ├── WorkExperienceItem
+│         └── AddButton
+│
+└── Preview
+    ├── Header
+    ├── Summary
+    └── WorkExperienceList
+           ├── WorkExperience
+           ├── WorkExperience
+           └── WorkExperience
+```
 
 Don't worry about creating smaller components yet. If `Editor` becomes too large, split it later.
 
