@@ -12,8 +12,8 @@ export let initialWorkEx = [{
     id: crypto.randomUUID(),
     role: "Software Developer",
     company: "Banana Co.",
-    startDate: "2022-11-21",
-    endDate: "2024-03-21",
+    startDate: "2022-11",
+    endDate: "2024-03",
     jobDesc: `Designed and developed full-stack web applications using React, Node.js, and Express. Created RESTful APIs and integrated databases such as PostgreSQL and MongoDB. Implemented authentication, authorization, and secure data handling. Wrote modular, reusable, and well-documented code following industry best practices. Collaborated with product managers and QA engineers to deliver production-ready features. Monitored application performance and resolved production issues to ensure reliability.`
 }]
 
@@ -22,6 +22,9 @@ export let initalEducation = [{
     degree: "Bachelor of Technology - Computer Science",
     university: "IIT Bombay",
     location: "Mumbai, IN",
-    startDate: "2018-07-01",
-    endDate: "2022-07-01",
+    startDate: "2018-07",
+    endDate: "2022-08",
 }]
+
+export let initialSkills = [{id: crypto.randomUUID(), skill: "React" },
+  { id: crypto.randomUUID(), skill: "JavaScript" },]

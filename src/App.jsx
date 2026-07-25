@@ -4,12 +4,13 @@ import { useState } from 'react'
 import './styles/App.css'
 import Editor from './components/Editor.jsx'
 import Preview from './components/Preview.jsx'
-import { initialPersonalDetails, initialWorkEx, initalEducation } from './details.js'
+import { initialPersonalDetails, initialWorkEx, initalEducation, initialSkills } from './details.js'
 
 function App() {
   const [details, setDetails] = useState(initialPersonalDetails)
   const [workexDetails, setWorkexDetails] = useState(initialWorkEx)
   const [eduDetails, setEduDetails] = useState(initalEducation);
+  const [skills, setSkills] = useState(initialSkills)
 
   function handleDetailsChange(e) {
     setDetails({...details, [e.target.name]: e.target.value,});
@@ -27,11 +28,11 @@ function App() {
   function handleAddExp() {
     let newExperience = {
       id: crypto.randomUUID(),
-    role: "",
-    company: "",
-    startDate: "2020-10-10",
-    endDate: "2022-12-10",
-    jobDesc: ``
+      role: "",
+      company: "",
+      startDate: "2020-10",
+      endDate: "2022-12",
+      jobDesc: ``
     }
     setWorkexDetails([...workexDetails, newExperience])
   }
@@ -43,24 +44,61 @@ function App() {
   function handleEduChange(e, id) {
     setEduDetails(eduDetails.map(education => {
       if (education.id === id) {
-        return {...eduDetails, [e.target.name]: e.target.value}
+        return {...education, [e.target.name]: e.target.value}
       }
       return education
     }))
   }
 
+  function handleAddEdu() {
+    let newEducation = {
+      id: crypto.randomUUID(),
+      degree: "",
+      university: "",
+      location: "",
+      startDate: "2018-07",
+      endDate: "2022-08",
+    }
+    setEduDetails([...eduDetails, newEducation])
+  }
+
+  function handleDelEdu(id) {
+    setEduDetails(eduDetails.filter(education => education.id !== id))
+  }
+
+  function handleSkillChange(e, id) {
+    setSkills(skills.map(skill => {
+      if(skill.id === id) {
+        return {...skill, skill: e.target.value}
+      }
+      return skill
+    }))
+  }
+
+  function handleAddSkill() {
+    let newSkill = {id: crypto.randomUUID(), skill: ""}
+    setSkills([...skills, newSkill])
+  }
+
+  function handleDelSkill(id) {
+    setSkills(skills.filter(skill => skill.id !== id))
+  }
+
   return (
     <div className='app'>
       <Editor details={details} 
-      workexDetails={workexDetails} 
-      eduDetails={eduDetails}
       handleDetailsChange={handleDetailsChange} 
+      workexDetails={workexDetails} 
       handleWorkexChange={handleWorkexChange}
       handleAddExp={handleAddExp}
       handleDelExp={handleDelExp}
-      handleEduChange={handleEduChange}/>
+      eduDetails={eduDetails}
+      handleEduChange={handleEduChange}
+      handleAddEdu={handleAddEdu}
+      handleDelEdu={handleDelEdu}
+      skills={skills} handleSkillChange={handleSkillChange} handleAddSkill={handleAddSkill} handleDelSkill={handleDelSkill}/>
 
-      <Preview details={details} workexDetails={workexDetails} eduDetails={eduDetails}/>
+      <Preview details={details} workexDetails={workexDetails} eduDetails={eduDetails} skills={skills}/>
     </div>
   )
 }

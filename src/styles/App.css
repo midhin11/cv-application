@@ -2,7 +2,6 @@
 
 .app {
   display: flex;
-  border: 2px solid red;
   width: 100vw;
   min-height: 100vh;
   font-size: 16px;
@@ -11,14 +10,12 @@
 
 
 .editor {
-  border: 4px solid blue;
   padding: 25px;
   flex-grow: 1;
   width: 550px;
 }
 
 .prev-container {
-  border: 4px solid green;
   width: 75%;
   background-color: #1e293ba5;
   padding: 10px;
@@ -47,7 +44,7 @@ label {
   text-align: right;
 }
 
-.experience-edit label {
+.experience-edit label, .education-edit label {
   width: 85px;
 }
 
@@ -93,11 +90,11 @@ svg {
 
 /* Experience Items with header */
 
-.exp-section, .generalInfo{
+.exp-section, .generalInfo, .edu-section{
   margin-bottom: 20px;
 }
 
-.experience-edit {
+.experience-edit, .education-edit {
   margin-bottom: 1rem;
   border: 1px solid #d8dee6;
   border-radius: 10px;
@@ -105,7 +102,7 @@ svg {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.exp-header {
+.exp-header, .edu-header {
   padding: 0.9rem 1rem;
   background: #f7f9fc;
   font-size: 1rem;
@@ -114,22 +111,24 @@ svg {
   transition: background-color 0.2s ease;
 }
 
-.exp-header:hover {
+.exp-header:hover, .edu-header:hover {
     background: #edf2f7;
 }
 
-.experience-edit > :not(.exp-header){
+.experience-edit > :not(.exp-header),
+.education-edit > :not(.edu-header){
   padding: 0 1rem;
 }
 
-.experience-edit > div:not(.jobDesc-edit) {
+.experience-edit > div:not(.jobDesc-edit), 
+.education-edit > div {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 1rem;
 }
 
-.experience-edit input, .generalInfo input {
+  input {
   flex: 1;
 }
 
@@ -155,7 +154,107 @@ button {
   width: 100%;
 }
 
+/* Skills section */
 
+.skills {
+  margin-top: 1.5rem;
+  border: 1px solid #d8dee6;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.skills .editor-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  background: #f7f9fc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.skills .editor-header:hover {
+  background-color: #edf2f7;
+}
+
+.skills .editor-header h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.skills .editor-header span {
+  font-size: 0.9rem;
+}
+
+.skills input {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 0.5rem 0.8rem;
+  padding: 0.1rem 0.8rem;
+  border: 1px solid #d8dee6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.skill input:nth-last-of-type(1) {
+}
+
+.skills input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.add-edu {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-edu:hover {
+  background-color: #1d4ed8;
+}
+
+.skills .add-edu {
+  margin-top: 1rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 0.8rem;
+}
+
+.skill input {
+  flex: 1;
+  min-width: 100px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #d8dee6;
+  border-radius: 6px;
+}
+
+.skill input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.skill > button {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Preview */
 
@@ -226,10 +325,18 @@ a {
   font-style: italic;
 }
 
-.workex-prev {
+.workex-prev, .edu-prev{
   line-height: 1.5;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-align: justify;
+}
+
+.skill-prev{
+  line-height: 1.5;
+}
+
+.skills-prev-header {
+  margin-bottom: 15px;
 }
 
 .edu-intro {
@@ -237,7 +344,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding-right: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 .degree {

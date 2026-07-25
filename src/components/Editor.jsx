@@ -1,13 +1,13 @@
 // Editor.jsx
 
-import { PersonSvg, WorkSvg, EducationSvg, DelButton } from "../svg.jsx";
+import { PersonSvg, WorkSvg, EducationSvg, DelButton, SkillsSvg } from "../svg.jsx";
 import { useState } from "react";
 
 export default function Editor({
-  details, workexDetails, eduDetails, 
-  handleDetailsChange, 
-  handleWorkexChange, handleAddExp, handleDelExp,
-  handleEduChange
+  details, handleDetailsChange, 
+  workexDetails, handleWorkexChange, handleAddExp, handleDelExp,
+  eduDetails, handleEduChange, handleAddEdu, handleDelEdu,
+  skills, handleSkillChange, handleAddSkill, handleDelSkill
 }) {
   return (
     <div className='editor'>
@@ -51,7 +51,6 @@ export default function Editor({
           key={work.id}
           work={work}
           handleWorkexChange={handleWorkexChange}
-          handleAddExp={handleAddExp}
           handleDelExp={handleDelExp}
           />
         ))}
@@ -60,23 +59,55 @@ export default function Editor({
         </button>
       </div>
 
-      {/* <div className="edu-section">
+      <div className="edu-section">
         <div className="editor-header"><EducationSvg/><h3>Eduation</h3></div>
         {eduDetails.map((education) => (
           <EducationEditItem
           key={education.id}
-          eduDetails={eduDetails}
+          education={education}
           handleEduChange={handleEduChange}
+          handleDelEdu={handleDelEdu}
           />
         ))}
-        <button className="add-edu" onClick={handleAddExp}>
-          + Add experience
+        <button className="add-edu" onClick={handleAddEdu}>
+          + Add Education
         </button>
-      </div> */}
+      </div>
       
+      <SkillsEdit skills={skills} handleSkillChange={handleSkillChange} handleAddSkill={handleAddSkill} handleDelSkill={handleDelSkill}/>
+            
     </div>
   )
 }
+
+function SkillsEdit({skills, handleSkillChange, handleAddSkill, handleDelSkill}) {
+  const [expanded, setExpanded] = useState(true) 
+  function handleExpanded() {
+    setExpanded(!expanded)
+  }
+
+  return (
+    <div className="skills">
+      <div className="editor-header" onClick={handleExpanded}>
+        <SkillsSvg/>
+        <h3>Skills <span>{expanded ? "▲" : "▼"}</span></h3>
+      </div>
+
+      {expanded && <>
+        {skills.map(skill => {
+          return (<div className="skill" key={skill.id}>
+            <input type="text" name="skill" id="" value={skill.skill} onChange={e => (handleSkillChange(e, skill.id))}/>
+            <button onClick={() => handleDelSkill(skill.id)}><DelButton/></button>
+          </div>)
+        })}
+        <button className="add-edu" onClick={handleAddSkill}>
+          + Add Skills
+        </button>
+      </>}
+    </div>
+  )
+}
+
 
 function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp}) {
   const [expanded, setExpanded] = useState(false);
@@ -90,26 +121,26 @@ function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp}) {
 
       {expanded && <>
         <div>
-            <label htmlFor="role">Role: </label>
-            <input type="text" name="role" id="role" value={work.role} onChange={(e) => (handleWorkexChange(e, work.id))}/>
+          <label htmlFor="role">Role: </label>
+          <input type="text" name="role" id="role" value={work.role} onChange={(e) => (handleWorkexChange(e, work.id))}/>
         </div>
         <div>
-            <label htmlFor="company">Company: </label>
-            <input type="text" name="company" id="company" value={work.company} onChange={(e) => (handleWorkexChange(e, work.id))}/>
+          <label htmlFor="company">Company: </label>
+          <input type="text" name="company" id="company" value={work.company} onChange={(e) => (handleWorkexChange(e, work.id))}/>
         </div>
         <div>
-            <label htmlFor="startDate">Start: </label>
-            <input type="date" name="startDate" id="startDate" value={work.startDate} onChange={(e) => (handleWorkexChange(e, work.id))}/>
+          <label htmlFor="startDate">Start: </label>
+          <input type="month" name="startDate" id="startDate" value={work.startDate} onChange={(e) => (handleWorkexChange(e, work.id))}/>
         </div>
         <div>
-            <label htmlFor="endDate">End: </label>
-            <input type="date" name="endDate" id="endDate" value={work.endDate} onChange={(e) => (handleWorkexChange(e, work.id))}/>
+          <label htmlFor="endDate">End: </label>
+          <input type="month" name="endDate" id="endDate" value={work.endDate} onChange={(e) => (handleWorkexChange(e, work.id))}/>
         </div>
         <div className="jobDesc-edit">
-            <label htmlFor="jobDesc">Job Description: </label>
-            <textarea type="text" name="jobDesc" id="jobDesc" value={work.jobDesc} onChange={(e) => (handleWorkexChange(e, work.id))}></textarea>
+          <label htmlFor="jobDesc">Job Description: </label>
+          <textarea type="text" name="jobDesc" id="jobDesc" value={work.jobDesc} onChange={(e) => (handleWorkexChange(e, work.id))}></textarea>
         </div>
-        <div className="exp-btns">
+        <div className="del-btn">
           {<button onClick={() => handleDelExp(work.id)}><DelButton/></button>}
         </div>
       </>}
@@ -118,25 +149,42 @@ function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp}) {
   ) 
 }
 
-// function EducationEditItem ({education, handleEduChange}) {
-//   const [expanded, setExpanded] = useState(false)
-//   function handleExpanded() {
-//     setExpanded(!expanded)
-//   }
+function EducationEditItem ({education, handleEduChange, handleDelEdu}) {
+  const [expanded, setExpanded] = useState(false)
+  function handleExpanded() {
+    setExpanded(!expanded)
+  }
 
-//   return(
-//     <div className="education-edit">
-//       <div className="edu-header" onClick={handleExpanded}> <span>{expanded ? "▲" : "▼"}</span> {education.degree || "New Experience"}</div>
+  return(
+    <div className="education-edit">
+      <div className="edu-header" onClick={handleExpanded}> <span>{expanded ? "▲" : "▼"}</span> {education.degree || "New Education"}</div>
 
-//       {expanded && <>
-//       <div>
-//         <div>
-//           <label htmlFor="role">Role: </label>
-//           <input type="text" name="role" id="role" value={work.role} onChange={(e) => (handleWorkexChange(e, work.id))}/>
-//         </div>
-//       </div>  
-//       </>}
+      {expanded && <>
+        <div>
+          <label htmlFor="degree">Degree: </label>
+          <input type="text" name="degree" id="degree" value={education.degree} onChange={(e) => (handleEduChange(e, education.id))} />
+        </div>  
+        <div>
+          <label htmlFor="university">University: </label>
+          <input type="text" name="university" id="university" value={education.university} onChange={(e) => (handleEduChange(e, education.id))}/>
+        </div>  
+        <div>
+          <label htmlFor="location">Location: </label>
+          <input type="text" name="location" id="location" value={education.location} onChange={(e) => (handleEduChange(e, education.id))}/>
+        </div>  
+        <div>
+          <label htmlFor="startDate">Start: </label>
+          <input type="month" name="startDate" id="startDate" value={education.startDate} onChange={(e) => (handleEduChange(e, education.id))}/>
+        </div>
+        <div>
+          <label htmlFor="endDate">End: </label>
+          <input type="month" name="endDate" id="endDate" value={education.endDate} onChange={(e) => (handleEduChange(e, education.id))}/>
+        </div>
+        <div className="del-btn">
+          {<button onClick={() => handleDelEdu(education.id)}><DelButton/></button>}
+        </div>
+      </>}
     
-//     </div>
-//   )
-// }
+    </div>
+  )
+}

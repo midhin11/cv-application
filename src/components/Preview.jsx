@@ -56,7 +56,13 @@ function Education({eduDetails}){
   })
 }
 
-export default function Preview({details, workexDetails, eduDetails}) {
+function Skills({skills}) {
+  return skills.map(skill => {
+    return <div className="skill-prev">• {skill.skill}</div>
+  })
+}
+
+export default function Preview({details, workexDetails, eduDetails, skills}) {
   const contactInfo = [
     details.location,
     details.email,
@@ -91,6 +97,8 @@ export default function Preview({details, workexDetails, eduDetails}) {
         <WorkExperience workexDetails={workexDetails} />
         <h2>Education</h2>
         <Education eduDetails={eduDetails}/>
+        <h2 className="skills-prev-header">Skills</h2>
+        <Skills skills={skills}/>
       </div>
     </div>
   );
