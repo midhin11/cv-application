@@ -14,6 +14,7 @@
   border: 4px solid blue;
   padding: 25px;
   flex-grow: 1;
+  width: 550px;
 }
 
 .prev-container {
@@ -43,25 +44,23 @@
 label {
   display: inline-block;
   width: 80px; 
-  padding-right: 8px;
   text-align: right;
 }
 
 .experience-edit label {
-  width: 100px;
+  width: 85px;
 }
 
 input {
   padding: 2px 4px;
 }
 
-.generalInfo input {
-  width: 350px;
+.generalInfo > div:not(.summary-edit) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
 } 
-
-.experience-edit input {
-  width: 330px;
-}
 
 h1, h3, h4 {
   text-align: center;
@@ -75,7 +74,7 @@ h1, h3, h4 {
 } 
 
 .summary-edit textarea, #jobDesc {
-  width: 450px;
+  width: 100%;
   height: 100px;
   padding: 5px 8px;
 }
@@ -84,11 +83,76 @@ h1, h3, h4 {
   display: flex;
   align-items: center;
   gap: 2px;
+  margin-bottom: 10px;
 }
 
 svg {
   width: 23px;
   fill: black;
+}
+
+/* Experience Items with header */
+
+.exp-section, .generalInfo{
+  margin-bottom: 20px;
+}
+
+.experience-edit {
+  margin-bottom: 1rem;
+  border: 1px solid #d8dee6;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.exp-header {
+  padding: 0.9rem 1rem;
+  background: #f7f9fc;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.exp-header:hover {
+    background: #edf2f7;
+}
+
+.experience-edit > :not(.exp-header){
+  padding: 0 1rem;
+}
+
+.experience-edit > div:not(.jobDesc-edit) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.experience-edit input, .generalInfo input {
+  flex: 1;
+}
+
+.exp-btns {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  cursor: pointer;
+  width: 70px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
+  background-color: #f7f9fc;
+}
+
+.add-ex, .del-ex {
+  width: 100%;
 }
 
 
@@ -127,12 +191,26 @@ li {
   list-style: none;
 }
 
+.intro-link {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.intro-link svg {
+  width: 15px;
+}
+
+a {
+  display: inline;
+}
+
 .workex-intro {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .role-company + div{
@@ -150,5 +228,18 @@ li {
 
 .workex-prev {
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.edu-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  margin-bottom: 5px;
+}
+
+.degree {
+  font-weight: 600;
 }
