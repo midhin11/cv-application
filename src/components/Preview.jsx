@@ -12,25 +12,23 @@ function Summary({details}) {
 function WorkExperience({workexDetails}) {
     return workexDetails.map(experience => {
         const formattedStartDate = new Date(experience.startDate).toLocaleDateString('en-US', {
-            month: 'long',
+            month: 'short',
             year: 'numeric'
         });
         const formattedEndDate = new Date(experience.endDate).toLocaleDateString('en-US', {
-            month: 'long',
+            month: 'short',
             year: 'numeric'
         });
 
-        return (<div key={experience.id}>
-            <h2>Work Experience</h2>
-            <div className='workex-prev'>
+        return (
+          <div className="workex-prev" key={experience.id}>
             <div className="workex-intro">
                 <div><span className='company'>{experience.role}</span> - <span className='role'>{experience.company}</span></div>
                 <div>{formattedStartDate} - {formattedEndDate}</div>
             </div>
             <div>{experience.jobDesc}</div>
-            </div>
-        </div>)
-    })
+          </div>
+        )})
 }
 
 export default function Preview({details, workexDetails}) {
@@ -63,6 +61,7 @@ export default function Preview({details, workexDetails}) {
         })}</h4>
       
         <Summary details={details}/>
+        <h2>Work Experience</h2>
         <WorkExperience workexDetails={workexDetails} />
       </div>
     </div>

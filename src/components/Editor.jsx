@@ -2,11 +2,11 @@
 
 import { PersonSvg, WorkSvg } from "../svg.jsx";
 
-export default function Editor({details, workexDetails, handleDetailsChange, handleWorkexChange}) {
+export default function Editor({details, workexDetails, handleDetailsChange, handleWorkexChange, handleAddExp}) {
   return (
     <div className='editor'>
       <div className="generalInfo">
-        <div><PersonSvg/><h3>General Information</h3></div>
+        <div className="editor-header"><PersonSvg/><h3>General Information</h3></div>
         <div>
           <label htmlFor='name'>Name: </label>
           <input type="text" name="name" id="name" placeholder='John Doe' value={details.name} onChange={handleDetailsChange}/>
@@ -38,17 +38,23 @@ export default function Editor({details, workexDetails, handleDetailsChange, han
         </div>  
       </div>
 
-        {workexDetails.map(workexDetail => (
-          <WorkExperienceEditItem key={workexDetail.id} workexDetail={workexDetail} handleWorkexChange={handleWorkexChange}/>
+      <div className="editor-header"><WorkSvg/><h3>Work Experience</h3></div>
+        {workexDetails.map((workexDetail, index) => (
+          <WorkExperienceEditItem 
+          key={workexDetail.id} 
+          workexDetail={workexDetail} 
+          handleWorkexChange={handleWorkexChange}
+          handleAddExp={handleAddExp}
+          isLast={index === workexDetails.length - 1}
+          />
         ))}
       
     </div>
   )
 }
 
-function WorkExperienceEditItem({workexDetail, handleWorkexChange}) {
+function WorkExperienceEditItem({workexDetail, handleWorkexChange, handleAddExp, isLast}) {
     return (<div className="experience-edit" key={workexDetail.id}>
-      <div><WorkSvg/><h3>Work Experience</h3></div>
       <div>
           <label htmlFor="role">Role: </label>
           <input type="text" name="role" id="role" value={workexDetail.role} onChange={(e) => (handleWorkexChange(e, workexDetail.id))}/>
@@ -69,6 +75,9 @@ function WorkExperienceEditItem({workexDetail, handleWorkexChange}) {
           <label htmlFor="jobDesc">Job Description: </label>
           <textarea type="text" name="jobDesc" id="jobDesc" value={workexDetail.jobDesc} onChange={(e) => (handleWorkexChange(e, workexDetail.id))}></textarea>
       </div>
+      {isLast && <button className="add-ex" onClick={handleAddExp}>
+        Add Experience
+        </button>}
     </div>
   ) 
 }

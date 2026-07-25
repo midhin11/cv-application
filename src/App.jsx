@@ -1,7 +1,7 @@
 // App.jsx
 
 import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 import Editor from './components/Editor.jsx'
 import Preview from './components/Preview.jsx'
 
@@ -16,7 +16,7 @@ function App() {
     about: "Results-driven Software Developer with 4+ years of experience designing, developing, and maintaining scalable web applications. Proficient in JavaScript, React, Node.js, and modern development practices, with a strong foundation in problem-solving and software design. Passionate about building user-focused applications, writing clean and maintainable code, and collaborating with cross-functional teams to deliver high-quality software solutions."
   }
   let initialWorkEx = [{
-    id: 1,
+    id: crypto.randomUUID(),
     role: "Software Developer",
     company: "Banana Co.",
     startDate: "2022-11-21",
@@ -45,11 +45,30 @@ Monitored application performance and resolved production issues to ensure relia
     }))
   }
 
+  function handleAddExp() {
+    let newExperience = {
+      id: crypto.randomUUID(),
+    role: "",
+    company: "",
+    startDate: "1000-10-10",
+    endDate: "1005-12-10",
+    jobDesc: ``
+    }
+    setWorkexDetails([...workexDetails, newExperience])
+  }
+
+  function handleDelExp() {
+    setWorkexDetails(workexDetails.pop())
+  }
+
   return (
     <div className='app'>
       <Editor details={details} workexDetails={workexDetails}
       handleDetailsChange={handleDetailsChange} 
-      handleWorkexChange={handleWorkexChange}/>
+      handleWorkexChange={handleWorkexChange}
+      handleAddExp={handleAddExp}
+      handleDelExp={handleDelExp}/>
+
       <Preview details={details} workexDetails={workexDetails}/>
     </div>
   )
