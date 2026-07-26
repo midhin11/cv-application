@@ -11,36 +11,43 @@ export default function Editor({
 }) {
   return (
     <div className='editor'>
+      <div className="page-name">Resume Builder</div>
+      <div className="tagline">Build a professional resume in minutes.</div>
+
       <PersonalInfoEdit details={details} handleDetailsChange={handleDetailsChange}/>
 
-      <div className="exp-section">
+      <div className="editor-card">
         <div className="section-header"><WorkSvg/><h3>Work Experience</h3></div>
-        {workexDetails.map((work) => (
-          <WorkExperienceEditItem
-          key={work.id}
-          work={work}
-          handleWorkexChange={handleWorkexChange}
-          handleDelExp={handleDelExp}
-          />
-        ))}
-        <button className="add-ex" onClick={handleAddExp}>
-          + Add experience
-        </button>
+        <div className="section-info">
+          {workexDetails.map((work) => (
+            <WorkExperienceEditItem
+            key={work.id}
+            work={work}
+            handleWorkexChange={handleWorkexChange}
+            handleDelExp={handleDelExp}
+            />
+          ))}
+          <button className="add-ex" onClick={handleAddExp}>
+            + Add experience
+          </button>
+        </div>
       </div>
 
-      <div className="edu-section">
+      <div className="editor-card">
         <div className="section-header"><EducationSvg/><h3>Eduation</h3></div>
-        {eduDetails.map((education) => (
-          <EducationEditItem
-          key={education.id}
-          education={education}
-          handleEduChange={handleEduChange}
-          handleDelEdu={handleDelEdu}
-          />
-        ))}
-        <button className="add-edu" onClick={handleAddEdu}>
-          + Add Education
-        </button>
+        <div className="section-info">
+          {eduDetails.map((education) => (
+            <EducationEditItem
+            key={education.id}
+            education={education}
+            handleEduChange={handleEduChange}
+            handleDelEdu={handleDelEdu}
+            />
+          ))}
+          <button className="add-edu" onClick={handleAddEdu}>
+            + Add Education
+          </button>
+        </div>
       </div>
       
       <SkillsEdit skills={skills} handleSkillChange={handleSkillChange} handleAddSkill={handleAddSkill} handleDelSkill={handleDelSkill}/>
@@ -50,7 +57,7 @@ export default function Editor({
 }
 
 function PersonalInfoEdit({details, handleDetailsChange}){
-  const [expanded, setExpanded] = useState(true) 
+  const [expanded, setExpanded] = useState(false) 
   function handleExpanded() {
     setExpanded(!expanded)
   }
@@ -60,17 +67,17 @@ function PersonalInfoEdit({details, handleDetailsChange}){
       <div className="editor-header" onClick={handleExpanded}>
         <PersonSvg/>
         <h3>General Information</h3>
-        <span>{expanded ? "▲" : "▼"}</span>
+        <span className={expanded ? "arrow expanded" : "arrow"}>▶</span>
       </div>
 
-      {expanded && <div className="editor-section">
+      {expanded && <div className="form-editor-section">
         <div className="form-group">
           <label htmlFor='name'>Name: </label>
-          <input type="text" name="name" id="name" placeholder='John Doe' value={details.name} onChange={handleDetailsChange}/>
+          <input type="text" name="name" id="name" value={details.name} onChange={handleDetailsChange}/>
         </div>
         <div className="form-group">
           <label htmlFor='curr-position'>Position: </label>
-          <input type="text" name="curr-position" id="curr-position" value={details.position} onChange={handleDetailsChange}/>
+          <input type="text" name="position" id="position" value={details.position} onChange={handleDetailsChange}/>
         </div>
         <div className="form-group">
           <label htmlFor=''>Location: </label>
@@ -109,7 +116,7 @@ function SkillsEdit({skills, handleSkillChange, handleAddSkill, handleDelSkill})
       <div className="skills-header" onClick={handleExpanded}>
         <SkillsSvg/>
         <h3>Skills</h3>
-        <span>{expanded ? "▲" : "▼"}</span>
+        <span className={expanded ? "arrow expanded" : "arrow"}>▶</span>
       </div>
 
       {expanded && <>
@@ -136,9 +143,12 @@ function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp}) {
 
   return (
     <div className="experience-edit">
-      <div className="item-header" onClick={handleExpanded}> <span>{expanded ? "▲" : "▼"}</span> {work.role || "New Experience"}</div>
+      <div className="item-header" onClick={handleExpanded}> 
+        <div>{work.role || "New Experience"}</div>
+        <span className={expanded ? "arrow expanded" : "arrow"}>▶</span> 
+      </div>
 
-      {expanded && <div className="editor-section">
+      {expanded && <div className="form-editor-section">
         <div className="form-group">
           <label htmlFor="role">Role: </label>
           <input type="text" name="role" id="role" value={work.role} onChange={(e) => (handleWorkexChange(e, work.id))}/>
@@ -176,9 +186,12 @@ function EducationEditItem ({education, handleEduChange, handleDelEdu}) {
 
   return(
     <div className="education-edit">
-      <div className="item-header" onClick={handleExpanded}> <span>{expanded ? "▲" : "▼"}</span> {education.degree || "New Education"}</div>
+      <div className="item-header" onClick={handleExpanded}> 
+        <div>{education.degree || "New Education"}</div>
+        <span className={expanded ? "arrow expanded" : "arrow"}>▶</span> 
+      </div>
 
-      {expanded && <div className="editor-section">
+      {expanded && <div className="form-editor-section">
         <div className="form-group">
           <label htmlFor="degree">Degree: </label>
           <input type="text" name="degree" id="degree" value={education.degree} onChange={(e) => (handleEduChange(e, education.id))} />

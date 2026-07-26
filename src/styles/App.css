@@ -1,11 +1,12 @@
 /* App.css */
 
+
 .app {
   display: flex;
   width: 100vw;
-  min-height: 100vh;
   font-size: 16px;
   padding: 0px 20px;
+  font-family: 'Inter', 'Times New Roman', Times, serif;
 }
 
 
@@ -13,22 +14,25 @@
   padding: 25px;
   flex-grow: 1;
   width: 550px;
+  position: sticky;
+  top: 20px
 }
 
 .prev-container {
   width: 75%;
-  background-color: #1e293ba5;
-  padding: 10px;
+  background-color: #cbd5e1;
+  padding: 2rem;
 }
 
 .preview {
-  padding: 10px 30px;
+  padding: 2rem 3rem;
   width: 100%;
   max-width: 794px;
   min-height: 1123px;
   margin: 0 auto;
   background-color: white;
   box-shadow: 1px 1px 15px rgb(0, 0, 0, 0.4);
+  border-radius: 6px;
 }
 
 /* Editor */
@@ -61,7 +65,7 @@ textarea:focus {
   box-shadow:0 0 0 3px rgba(37,99,235,.12);
 }
 
-.editor-section {
+.form-editor-section {
   /* border: 2px solid red; */
   padding: 0.6rem 1rem;
 } 
@@ -87,7 +91,6 @@ h1, h3, h4 {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  margin-bottom: 0.8rem;
   padding: 0.8rem 1rem;
   background: #f7f9fc;
   cursor: pointer;
@@ -98,11 +101,33 @@ svg {
   fill: black;
 }
 
-/* Experience Items with header */
-
-.exp-section, .generalInfo, .edu-section{
-  margin-bottom: 20px;
+.generalInfo,
+.skills,
+.editor-card,
+.experience-edit,
+.education-edit {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.generalInfo:hover,
+.skills:hover,
+.editor-card:hover,
+.experience-edit:hover,
+.education-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.arrow {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* Experience Items with header */
 
 .experience-edit, .education-edit {
   margin-bottom: 1rem;
@@ -112,7 +137,12 @@ svg {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
+.section-info{
+  padding: 1rem;
+}
+
 .item-header{
+  display: flex;
   padding: 0.9rem 1rem;
   background: #f7f9fc;
   font-size: 1rem;
@@ -149,13 +179,14 @@ button {
 
 /* Skills section and Personal info section */
 
-.skills, .generalInfo {
+.skills, .generalInfo, .editor-card {
   margin-top: 1.5rem;
   border: 1px solid #d8dee6;
   border-radius: 10px;
   background: white;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
 }
 
 .skills-header,
@@ -250,6 +281,20 @@ button {
 }
 
 /* Preview */
+.summary,
+.work-history,
+.education-history,
+.skills-history {
+    margin-top: 2rem;
+}
+
+.summary p {
+  line-height: 1.6;
+}
+
+.summary h2 {
+  margin-top: -0.5rem;
+}
 
 .preview h1 {
   margin: 10px;
@@ -258,10 +303,17 @@ button {
 
 h1 {
   font-size: 36px;
+  letter-spacing: 0.5px;
+  color: #1e3a8a;
 }
 
 h3 {
   font-size: 20px;
+}
+
+.pos {
+  color:#475569;
+  font-weight:600;
 }
 
 h3, h4{
@@ -275,7 +327,9 @@ h4 {
 
 h2 {
   text-transform: uppercase;
-  border-bottom: 1px solid black;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 li {
@@ -309,18 +363,18 @@ a {
   align-self: center;
 }
 
-.company{
-  font-size: 20px;
+.role{
+  font-size: 18px;
   font-weight: bold;
 }
 
-.role, .edu-uni {
+.company, .edu-uni {
   font-style: italic;
 }
 
 .workex-prev, .edu-prev{
   line-height: 1.5;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
 }
 
 .tasks {
@@ -345,4 +399,21 @@ a {
 
 .degree {
   font-weight: 600;
+}
+
+.skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 1rem;
+}
+
+.task {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.task p {
+  margin: 0;
+  padding: 0;
 }

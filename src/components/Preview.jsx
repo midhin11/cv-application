@@ -1,67 +1,6 @@
 // Preview.jsx
 import { LinkedInSvg } from "../svg.jsx";
 
-function Summary({details}) {
-  return(
-    <div className='summary'>
-      <h2>Professional Summary</h2>
-      <p>{details.about}</p>
-    </div>
-  )
-}
-
-function WorkExperience({workexDetails}) {
-  return workexDetails.map(experience => {
-    const formattedStartDate = new Date(experience.startDate).toLocaleDateString('en-US', {
-        month: 'short',
-        year: 'numeric'
-    });
-    const formattedEndDate = new Date(experience.endDate).toLocaleDateString('en-US', {
-        month: 'short',
-        year: 'numeric'
-    });
-
-    return (
-      <div className="workex-prev" key={experience.id}>
-        <div className="workex-intro">
-            <div><span className='company'>{experience.role}</span> - <span className='role'>{experience.company}</span></div>
-            <div>{formattedStartDate} - {formattedEndDate}</div>
-        </div>
-        <div className="tasks">{experience.jobDesc}</div>
-      </div>
-    )
-  })
-}
-
-function Education({eduDetails}){
-  return eduDetails.map(education => {
-    const formattedStartDate = new Date(education.startDate).toLocaleDateString('en-US', {
-        month: 'short',
-        year: 'numeric'
-    });
-    const formattedEndDate = new Date(education.endDate).toLocaleDateString('en-US', {
-        month: 'short',
-        year: 'numeric'
-    });
-
-    return (
-      <div className="edu-prev" key={education.id}>
-        <div className="edu-intro">
-          <div className="degree">{education.degree}</div>
-          <div className="edu-date">{formattedStartDate} - {formattedEndDate}</div>
-        </div>
-        <div className="edu-uni">{education.university} - {education.location}</div>
-      </div>
-    )
-  })
-}
-
-function Skills({skills}) {
-  return skills.map(skill => {
-    return <div className="skill-prev">• {skill.skill}</div>
-  })
-}
-
 export default function Preview({details, workexDetails, eduDetails, skills}) {
   const contactInfo = [
     details.location,
@@ -76,7 +15,7 @@ export default function Preview({details, workexDetails, eduDetails, skills}) {
     <div className="prev-container">
       <div className="preview">
         <h1>{details.name}</h1>
-        <h3>{details.position}</h3>
+        <h3 className="pos">{details.position}</h3>
         <h4>{filteredContactInfo.map((info, index) => {
           if (info === details.linkedIn) {
             return <li key={index}><a href={`https://linkedin.com/in/${details.linkedIn}`} rel='noopener noreferrer' target='blank'>{linkedinElement}</a></li>
@@ -102,4 +41,77 @@ export default function Preview({details, workexDetails, eduDetails, skills}) {
       </div>
     </div>
   );
+}
+
+function Summary({details}) {
+  return(
+    <div className='summary'>
+      <h2>Professional Summary</h2>
+      <p>{details.about}</p>
+    </div>
+  )
+}
+
+function WorkExperience({workexDetails}) {
+  return workexDetails.map(experience => {
+    const formattedStartDate = new Date(experience.startDate).toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric'
+    });
+    const formattedEndDate = new Date(experience.endDate).toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric'
+    });
+    const bullets = experience.jobDesc.split("\n").filter(line => line.trim() !== "")
+
+    return (
+      <div className="workex-prev" key={experience.id}>
+        <div className="workex-intro">
+            <div><span className='role'>{experience.role}</span> - <span className='company'>{experience.company}</span></div>
+            <div>{formattedStartDate} – {formattedEndDate}</div>
+        </div>
+        <div className="tasks">
+          {bullets.map((bullet, index) => (
+            <div className="task">
+              <span>•</span>
+              <p key={index}>{bullet}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  })
+}
+
+function Education({eduDetails}){
+  return eduDetails.map(education => {
+    const formattedStartDate = new Date(education.startDate).toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric'
+    });
+    const formattedEndDate = new Date(education.endDate).toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric'
+    });
+
+    return (
+      <div className="edu-prev" key={education.id}>
+        <div className="edu-intro">
+          <div className="degree">{education.degree}</div>
+          <div className="edu-date">{formattedStartDate} – {formattedEndDate}</div>
+        </div>
+        <div className="edu-uni">{education.university} - {education.location}</div>
+      </div>
+    )
+  })
+}
+
+function Skills({skills}) {
+  return (
+    <div className="skills-list">
+      {skills.map(skill => {
+        return <div className="skill-prev">• {skill.skill}</div>
+      })}
+    </div>
+  )
 }
