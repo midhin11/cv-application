@@ -1,5 +1,5 @@
 // Preview.jsx
-import { LinkedInSvg } from "../svg.jsx";
+import { LinkedInSvg, ExportSvg } from "../svg.jsx";
 
 export default function Preview({details, workexDetails, eduDetails, skills}) {
   const contactInfo = [
@@ -13,6 +13,10 @@ export default function Preview({details, workexDetails, eduDetails, skills}) {
 
   return (
     <div className="prev-container">
+      <div className="export">
+        <ExportSvg/>
+        <div>Export</div>
+      </div>
       <div className="preview">
         <h1>{details.name}</h1>
         <h3 className="pos">{details.position}</h3>

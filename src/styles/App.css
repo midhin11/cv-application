@@ -1,6 +1,4 @@
 /* App.css */
-
-
 .app {
   display: flex;
   width: 100vw;
@@ -9,6 +7,20 @@
   font-family: 'Inter', 'Times New Roman', Times, serif;
 }
 
+.page-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.tagline {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
 
 .editor {
   padding: 25px;
@@ -237,11 +249,12 @@ button {
   color: white;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .add-edu:hover, .add-ex:hover {
   background-color: #1d4ed8;
+  transform: translateY(-2px);
 }
 
 .skills .add-edu {
@@ -281,6 +294,37 @@ button {
 }
 
 /* Preview */
+
+.export {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.1rem;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+  max-width: 794px;
+}
+
+.export:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.export svg {
+  width: 18px;
+  fill: currentColor;
+}
+
+.export div {
+  font-weight: 600;
+}
+
 .summary,
 .work-history,
 .education-history,

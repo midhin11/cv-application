@@ -12,7 +12,7 @@ export default function Editor({
   return (
     <div className='editor'>
       <div className="page-name">Resume Builder</div>
-      <div className="tagline">Build a professional resume in minutes.</div>
+      <div className="tagline">Build a professional resume in minutes</div>
 
       <PersonalInfoEdit details={details} handleDetailsChange={handleDetailsChange}/>
 
