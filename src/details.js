@@ -26,5 +26,8 @@ export let initalEducation = [{
     endDate: "2022-08",
 }]
 
-export let initialSkills = [{id: crypto.randomUUID(), skill: "React" },
-  { id: crypto.randomUUID(), skill: "JavaScript" },]
+export let initialSkills = [{id: crypto.randomUUID(), skill: "React" }, 
+    { id: crypto.randomUUID(), skill: "JavaScript" },
+    { id: crypto.randomUUID(), skill: "HTML" }, 
+    { id: crypto.randomUUID(), skill: "CSS" },
+    { id: crypto.randomUUID(), skill: "TypeScript" },]

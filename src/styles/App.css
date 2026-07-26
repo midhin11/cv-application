@@ -33,30 +33,37 @@
 
 /* Editor */
 
-.generalInfo > div, .summary-edit, .experience-edit > div  {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
 label {
-  display: inline-block;
-  width: 80px; 
-  text-align: right;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color:#475569;
+  margin-left: 0.2rem;
 }
 
-.experience-edit label, .education-edit label {
-  width: 85px;
-}
-
-input {
-  padding: 2px 4px;
-}
-
-.generalInfo > div:not(.summary-edit) {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.form-group {
   margin-bottom: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.3rem 0.6rem;
+  border:1px solid #d6dce5;
+  border-radius:8px;
+  transition:.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+
+.editor-section {
+  /* border: 2px solid red; */
+  padding: 0.6rem 1rem;
 } 
 
 h1, h3, h4 {
@@ -76,11 +83,14 @@ h1, h3, h4 {
   padding: 5px 8px;
 }
 
-.editor-header {
+.section-header {
   display: flex;
   align-items: center;
-  gap: 2px;
-  margin-bottom: 10px;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: #f7f9fc;
+  cursor: pointer;
 }
 
 svg {
@@ -102,7 +112,7 @@ svg {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.exp-header, .edu-header {
+.item-header{
   padding: 0.9rem 1rem;
   background: #f7f9fc;
   font-size: 1rem;
@@ -111,25 +121,8 @@ svg {
   transition: background-color 0.2s ease;
 }
 
-.exp-header:hover, .edu-header:hover {
+.item-header:hover{
     background: #edf2f7;
-}
-
-.experience-edit > :not(.exp-header),
-.education-edit > :not(.edu-header){
-  padding: 0 1rem;
-}
-
-.experience-edit > div:not(.jobDesc-edit), 
-.education-edit > div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 1rem;
-}
-
-  input {
-  flex: 1;
 }
 
 .exp-btns {
@@ -154,36 +147,35 @@ button {
   width: 100%;
 }
 
-/* Skills section */
+/* Skills section and Personal info section */
 
-.skills {
+.skills, .generalInfo {
   margin-top: 1.5rem;
   border: 1px solid #d8dee6;
   border-radius: 10px;
-  background: #fff;
+  background: white;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.skills .editor-header {
+.skills-header,
+.generalInfo .editor-header {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.9rem 1rem;
+  padding: 0.5rem 1rem;
   background: #f7f9fc;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.skills .editor-header:hover {
-  background-color: #edf2f7;
+.skills-header {
+  margin-bottom: 0.5rem;
 }
 
-.skills .editor-header h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+.skills .editor-header:hover,
+.generalInfo .editor-header:hover {
+  background-color: #edf2f7;
 }
 
 .skills .editor-header span {
@@ -194,7 +186,7 @@ button {
   display: block;
   width: calc(100% - 2rem);
   margin: 0.5rem 0.8rem;
-  padding: 0.1rem 0.8rem;
+  padding: 0.3rem 0.8rem;
   border: 1px solid #d8dee6;
   border-radius: 6px;
   font-size: 0.95rem;
@@ -251,6 +243,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.editor-header h3 {
+    margin-right: auto;
 }
 
 /* Preview */
@@ -318,13 +314,16 @@ a {
   font-weight: bold;
 }
 
-.role {
+.role, .edu-uni {
   font-style: italic;
 }
 
 .workex-prev, .edu-prev{
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 1.2rem;
+}
+
+.tasks {
   text-align: justify;
 }
 
@@ -340,8 +339,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 10px;
-  margin-bottom: 1px;
+  padding-right: 0.8rem;
+  margin-bottom: 0.2rem;
 }
 
 .degree {

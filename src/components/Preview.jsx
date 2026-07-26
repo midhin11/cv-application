@@ -27,7 +27,7 @@ function WorkExperience({workexDetails}) {
             <div><span className='company'>{experience.role}</span> - <span className='role'>{experience.company}</span></div>
             <div>{formattedStartDate} - {formattedEndDate}</div>
         </div>
-        <div>{experience.jobDesc}</div>
+        <div className="tasks">{experience.jobDesc}</div>
       </div>
     )
   })
