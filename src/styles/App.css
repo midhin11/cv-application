@@ -200,15 +200,12 @@ button {
   font-size: 0.95rem;
 }
 
-.skill input:nth-last-of-type(1) {
-}
-
 .skills input:focus {
   outline: none;
   border-color: #2563eb;
 }
 
-.add-edu {
+.add-edu, .add-ex {
   width: 100%;
   padding: 0.8rem;
   border: none;
@@ -220,7 +217,7 @@ button {
   transition: background-color 0.2s ease;
 }
 
-.add-edu:hover {
+.add-edu:hover, .add-ex:hover {
   background-color: #1d4ed8;
 }
 
