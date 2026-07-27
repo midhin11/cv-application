@@ -19,12 +19,13 @@ export default function Editor({
       <div className="editor-card">
         <div className="section-header"><WorkSvg/><h3>Work Experience</h3></div>
         <div className="section-info">
-          {workexDetails.map((work) => (
+          {workexDetails.map((work, index) => (
             <WorkExperienceEditItem
             key={work.id}
             work={work}
             handleWorkexChange={handleWorkexChange}
             handleDelExp={handleDelExp}
+            isNotFirst={index !== 0}
             />
           ))}
           <button className="add-ex" onClick={handleAddExp}>
@@ -36,12 +37,13 @@ export default function Editor({
       <div className="editor-card">
         <div className="section-header"><EducationSvg/><h3>Eduation</h3></div>
         <div className="section-info">
-          {eduDetails.map((education) => (
+          {eduDetails.map((education, index) => (
             <EducationEditItem
             key={education.id}
             education={education}
             handleEduChange={handleEduChange}
             handleDelEdu={handleDelEdu}
+            isNotFirst={index !== 0}
             />
           ))}
           <button className="add-edu" onClick={handleAddEdu}>
@@ -123,7 +125,7 @@ function SkillsEdit({skills, handleSkillChange, handleAddSkill, handleDelSkill})
         {skills.map(skill => {
           return (<div className="skill" key={skill.id}>
             <input type="text" name="skill" id="" value={skill.skill} onChange={e => (handleSkillChange(e, skill.id))}/>
-            <button onClick={() => handleDelSkill(skill.id)}><DelButton/></button>
+            <button className="del-btn" onClick={() => handleDelSkill(skill.id)}><DelButton/></button>
           </div>)
         })}
         <button className="add-edu" onClick={handleAddSkill}>
@@ -135,7 +137,7 @@ function SkillsEdit({skills, handleSkillChange, handleAddSkill, handleDelSkill})
 }
 
 
-function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp}) {
+function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp, isNotFirst}) {
   const [expanded, setExpanded] = useState(false);
   function handleExpanded() {
     setExpanded(!expanded);
@@ -169,9 +171,11 @@ function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp}) {
           <label htmlFor="jobDesc">Job Description: </label>
           <textarea type="text" name="jobDesc" id="jobDesc" value={work.jobDesc} onChange={(e) => (handleWorkexChange(e, work.id))}></textarea>
         </div>
-        <div className="del-btn">
-          {<button onClick={() => handleDelExp(work.id)}><DelButton/></button>}
-        </div>
+        {isNotFirst && <div>
+          {<button className="del-btn" onClick={() => handleDelExp(work.id)}>
+            <DelButton/>
+          </button>}
+        </div>}
       </div>}
 
     </div>
@@ -212,8 +216,10 @@ function EducationEditItem ({education, handleEduChange, handleDelEdu}) {
           <label htmlFor="endDate">End: </label>
           <input type="month" name="endDate" id="endDate" value={education.endDate} onChange={(e) => (handleEduChange(e, education.id))}/>
         </div>
-        <div className="del-btn">
-          {<button onClick={() => handleDelEdu(education.id)}><DelButton/></button>}
+        <div>
+          {<button className="del-btn" onClick={() => handleDelEdu(education.id)}>
+            <DelButton/>
+          </button>}
         </div>
       </div>}
     
