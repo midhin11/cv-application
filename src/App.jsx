@@ -3,10 +3,15 @@
 import { useState } from 'react'
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import './styles/App.css'
+
 import Editor from './components/Editor/Editor.jsx'
 import Preview from './components/Preview.jsx'
 import { initialPersonalDetails, initialWorkEx, initalEducation, initialSkills } from './details.js'
+
+import './styles/App.css'
+import "./styles/Responsive.css"
+import "./styles/Editor.css"
+import "./styles/Preview.css"
 
 function App() {
   const [details, setDetails] = useState(initialPersonalDetails)

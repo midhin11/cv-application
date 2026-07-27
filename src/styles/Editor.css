@@ -1,0 +1,263 @@
+/* Editor */
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color:#475569;
+  margin-left: 0.2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.3rem 0.6rem;
+  border:1px solid #d6dce5;
+  border-radius:8px;
+  transition:.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+
+.form-editor-section {
+  /* border: 2px solid red; */
+  padding: 0.6rem 1rem;
+} 
+
+h1, h3, h4 {
+  text-align: center;
+}
+
+.summary-edit > label, label[for="jobDesc"]{
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: left;
+} 
+
+.summary-edit textarea, #jobDesc {
+  width: 100%;
+  height: 100px;
+  padding: 5px 8px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.8rem 1rem;
+  background: #f7f9fc;
+  cursor: pointer;
+}
+
+svg {
+  width: 23px;
+  fill: black;
+}
+
+.generalInfo,
+.skills,
+.editor-card,
+.experience-edit,
+.education-edit {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.generalInfo:hover,
+.skills:hover,
+.editor-card:hover,
+.experience-edit:hover,
+.education-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.arrow {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* Experience Items with header */
+
+.experience-edit, .education-edit {
+  margin-bottom: 1rem;
+  border: 1px solid #d8dee6;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-info{
+  padding: 1rem;
+}
+
+.item-header{
+  display: flex;
+  padding: 0.9rem 1rem;
+  background: #f7f9fc;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.item-header:hover{
+    background: #edf2f7;
+}
+
+.del-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  margin-top: 0.75rem;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fff5f5;
+  color: #dc2626;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.form-editor-section .del-btn {
+  width: 100%;
+}
+
+.del-btn:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+  transform: translateY(-1px);
+}
+
+.del-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.add-ex {
+  width: 100%;
+}
+
+/* Skills section and Personal info section */
+
+.skills, .generalInfo, .editor-card {
+  margin-top: 1.5rem;
+  border: 1px solid #d8dee6;
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.skills-header,
+.generalInfo .editor-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: #f7f9fc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.skills-header {
+  margin-bottom: 0.5rem;
+}
+
+.skills .editor-header:hover,
+.generalInfo .editor-header:hover {
+  background-color: #edf2f7;
+}
+
+.skills .editor-header span {
+  font-size: 0.9rem;
+}
+
+.skills input {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 0.5rem 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #d8dee6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.skills input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.add-edu, .add-ex {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-edu:hover, .add-ex:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.skills .add-edu {
+  margin-top: 1rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 0.8rem;
+}
+
+.skill input {
+  flex: 1;
+  min-width: 100px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #d8dee6;
+  border-radius: 6px;
+}
+
+.skill input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.skill > button {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editor-header h3 {
+    margin-right: auto;
+}
+

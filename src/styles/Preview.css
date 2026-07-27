@@ -1,0 +1,167 @@
+/* Preview */
+
+.export {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.1rem;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+  max-width: 794px;
+}
+
+.export:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.export svg {
+  width: 18px;
+  fill: currentColor;
+}
+
+.export div {
+  font-weight: 600;
+}
+
+.summary,
+.work-history,
+.education-history,
+.skills-history {
+    margin-top: 2rem;
+}
+
+.summary p {
+  line-height: 1.6;
+}
+
+.summary h2 {
+  margin-top: -0.5rem;
+}
+
+.preview h1 {
+  margin: 10px;
+}
+
+
+h1 {
+  font-size: 36px;
+  letter-spacing: 0.5px;
+  color: #1e3a8a;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.pos {
+  color:#475569;
+  font-weight:600;
+}
+
+h3, h4{
+  margin: 5px;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h2 {
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+li {
+  display: inline;
+  list-style: none;
+}
+
+.intro-link {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.intro-link svg {
+  width: 15px;
+}
+
+a {
+  display: inline;
+}
+
+.workex-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.role-company + div{
+  align-self: center;
+}
+
+.role{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.company, .edu-uni {
+  font-style: italic;
+}
+
+.workex-prev, .edu-prev{
+  line-height: 1.5;
+  margin-bottom: 1.4rem;
+}
+
+.tasks {
+  text-align: justify;
+}
+
+.skill-prev{
+  line-height: 1.5;
+}
+
+.skills-prev-header {
+  margin-bottom: 15px;
+}
+
+.edu-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.degree {
+  font-weight: 600;
+}
+
+.skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 1rem;
+}
+
+.task {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.task p {
+  margin: 0;
+  padding: 0;
+}
+

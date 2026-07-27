@@ -1,0 +1,68 @@
+@media screen and (max-width: 800px) {
+  .app {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .editor {
+    padding: 5px;
+    max-width: none;
+  }
+
+  .prev-container {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 2rem;
+    background-color: white;
+  }
+
+  .preview {
+    padding: 1.25rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .workex-intro,
+  .edu-intro {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .25rem;
+  }
+
+  .section-info {
+    padding: 0.75rem;
+  }
+
+  .form-editor-section {
+      padding: 0.75rem;
+  }
+
+  .generalInfo:hover,
+  .skills:hover,
+  .editor-card:hover,
+  .experience-edit:hover,
+  .education-edit:hover {
+      transform: none;
+      box-shadow: inherit;
+  }
+
+}
