@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import './styles/App.css'
-import Editor from './components/Editor.jsx'
+import Editor from './components/Editor/Editor.jsx'
 import Preview from './components/Preview.jsx'
 import { initialPersonalDetails, initialWorkEx, initalEducation, initialSkills } from './details.js'
 

@@ -1,5 +1,5 @@
 // Preview.jsx
-import { LinkedInSvg, ExportSvg } from "../svg.jsx";
+import { LinkedInSvg, ExportSvg } from "./svg.jsx";
 
 export default function Preview({details, workexDetails, eduDetails, skills,
 previewRef, handlePrint
