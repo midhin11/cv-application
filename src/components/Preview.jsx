@@ -1,7 +1,9 @@
 // Preview.jsx
 import { LinkedInSvg, ExportSvg } from "../svg.jsx";
 
-export default function Preview({details, workexDetails, eduDetails, skills}) {
+export default function Preview({details, workexDetails, eduDetails, skills,
+previewRef, handlePrint
+}) {
   const contactInfo = [
     details.location,
     details.email,
@@ -13,11 +15,11 @@ export default function Preview({details, workexDetails, eduDetails, skills}) {
 
   return (
     <div className="prev-container">
-      <div className="export">
+      <div className="export" onClick={handlePrint}>
         <ExportSvg/>
-        <div>Export</div>
+        <div>Export PDF</div>
       </div>
-      <div className="preview">
+      <div className="preview" ref={previewRef}>
         <h1>{details.name}</h1>
         <h3 className="pos">{details.position}</h3>
         <h4>{filteredContactInfo.map((info, index) => {
@@ -76,9 +78,9 @@ function WorkExperience({workexDetails}) {
         </div>
         <div className="tasks">
           {bullets.map((bullet, index) => (
-            <div className="task">
+            <div className="task" key={index}>
               <span>•</span>
-              <p key={index}>{bullet}</p>
+              <p>{bullet}</p>
             </div>
           ))}
         </div>
@@ -113,8 +115,8 @@ function Education({eduDetails}){
 function Skills({skills}) {
   return (
     <div className="skills-list">
-      {skills.map(skill => {
-        return <div className="skill-prev">• {skill.skill}</div>
+      {skills.map((skill, index) => {
+        return <div className="skill-prev" key={index}>• {skill.skill}</div>
       })}
     </div>
   )

@@ -1,6 +1,8 @@
 // App.jsx
 
 import { useState } from 'react'
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 import './styles/App.css'
 import Editor from './components/Editor.jsx'
 import Preview from './components/Preview.jsx'
@@ -11,6 +13,12 @@ function App() {
   const [workexDetails, setWorkexDetails] = useState(initialWorkEx)
   const [eduDetails, setEduDetails] = useState(initalEducation);
   const [skills, setSkills] = useState(initialSkills)
+
+  const previewRef = useRef(null)
+  const handlePrint = useReactToPrint({
+    contentRef: previewRef,
+    documentTitle: `${details.name || "Resume"}`
+  });
 
   function handleDetailsChange(e) {
     setDetails({...details, [e.target.name]: e.target.value,});
@@ -98,7 +106,13 @@ function App() {
       handleDelEdu={handleDelEdu}
       skills={skills} handleSkillChange={handleSkillChange} handleAddSkill={handleAddSkill} handleDelSkill={handleDelSkill}/>
 
-      <Preview details={details} workexDetails={workexDetails} eduDetails={eduDetails} skills={skills}/>
+      <Preview 
+      details={details} 
+      workexDetails={workexDetails} 
+      eduDetails={eduDetails} 
+      skills={skills}
+      previewRef={previewRef}
+      handlePrint={handlePrint}/>
     </div>
   )
 }
