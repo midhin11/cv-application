@@ -182,7 +182,7 @@ function WorkExperienceEditItem({work, handleWorkexChange,  handleDelExp, isNotF
   ) 
 }
 
-function EducationEditItem ({education, handleEduChange, handleDelEdu}) {
+function EducationEditItem ({education, handleEduChange, handleDelEdu, isNotFirst}) {
   const [expanded, setExpanded] = useState(false)
   function handleExpanded() {
     setExpanded(!expanded)
@@ -216,11 +216,11 @@ function EducationEditItem ({education, handleEduChange, handleDelEdu}) {
           <label htmlFor="endDate">End: </label>
           <input type="month" name="endDate" id="endDate" value={education.endDate} onChange={(e) => (handleEduChange(e, education.id))}/>
         </div>
-        <div>
+        {isNotFirst && <div>
           {<button className="del-btn" onClick={() => handleDelEdu(education.id)}>
             <DelButton/>
           </button>}
-        </div>
+        </div>}
       </div>}
     
     </div>
