@@ -1,6 +1,6 @@
 # Resume Builder
 
-A modern, responsive resume builder built with **React** that lets users create a professional resume in real time and export it as a PDF.
+A modern, responsive resume builder built with **React** that lets users create a professional resume in real time and export(For the best PDF export experience, use a desktop browser) it as a PDF.
 
 **Live Demo:** https://resume-builder-midhin.vercel.app/
 
