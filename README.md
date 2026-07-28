@@ -28,7 +28,6 @@ A modern, responsive resume builder built with **React** that lets users create 
 - JavaScript (ES6+)
 - CSS3
 - Vite
-- react-to-print
 
 ---
 
