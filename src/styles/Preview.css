@@ -89,11 +89,12 @@ li {
 .intro-link {
   display: inline-flex;
   gap: 5px;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .intro-link svg {
   width: 15px;
+  display: block;
 }
 
 a {
@@ -116,6 +117,10 @@ a {
   font-weight: bold;
 }
 
+.company {
+  font-size: 1.1rem;
+}
+
 .company, .edu-uni {
   font-style: italic;
 }
@@ -123,10 +128,6 @@ a {
 .workex-prev, .edu-prev{
   line-height: 1.5;
   margin-bottom: 1.4rem;
-}
-
-.tasks {
-  text-align: justify;
 }
 
 .skill-prev{
@@ -163,5 +164,6 @@ a {
 .task p {
   margin: 0;
   padding: 0;
+  text-align: left;
 }
 

@@ -39,9 +39,10 @@
   padding: 2rem 3rem;
   width: 100%;
   max-width: 50rem;
-  min-height: 1123px;
+  min-height: 70rem;
   margin: 0 auto;
   background-color: white;
   box-shadow: 1px 1px 15px rgb(0, 0, 0, 0.4);
   border-radius: 6px;
+  font-family: Aptos, Calibri, Arial, sans-serif;
 }
