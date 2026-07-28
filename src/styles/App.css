@@ -2,7 +2,7 @@
 .app {
   display: flex;
   width: 100vw;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 0px 20px;
   font-family: 'Inter', 'Times New Roman', Times, serif;
 }
@@ -24,9 +24,9 @@
 }
 
 .editor {
-  padding: 25px;
+  padding: 1.5rem;
   flex-grow: 1;
-  max-width: 550px;
+  max-width: 40rem;
 }
 
 .prev-container {
@@ -38,7 +38,7 @@
 .preview {
   padding: 2rem 3rem;
   width: 100%;
-  max-width: 794px;
+  max-width: 50rem;
   min-height: 1123px;
   margin: 0 auto;
   background-color: white;

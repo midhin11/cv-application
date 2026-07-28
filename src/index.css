@@ -2,6 +2,10 @@
 
 /* Reset */
 
+html {
+  font-size: 13px;
+}
+
 *,
 *::before,
 *::after {
