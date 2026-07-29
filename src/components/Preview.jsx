@@ -11,7 +11,6 @@ previewRef, handlePrint
     details.linkedIn,
   ];
   let filteredContactInfo = contactInfo.filter(info => info)
-  let linkedinElement = <span className="intro-link"><LinkedInSvg/><span>{details.linkedIn}</span></span>
 
   return (
     <div className="prev-container">
@@ -22,20 +21,27 @@ previewRef, handlePrint
       <div className="preview" ref={previewRef}>
         <h1>{details.name}</h1>
         <h3 className="pos">{details.position}</h3>
-        <h4>{filteredContactInfo.map((info, index) => {
-          if (info === details.linkedIn) {
-            return <li key={index}><a href={`https://linkedin.com/in/${details.linkedIn}`} rel='noopener noreferrer' target='blank'>{linkedinElement}</a></li>
-          }
-          else {
-            let notLast = true
-            if (index === filteredContactInfo.length - 1) notLast = false
-            return (<li key={index}>
-              {notLast
-                ? <span>{info} <span> | </span></span>
-                : <span>{info}</span>}
-            </li>)
-          }
-        })}</h4>
+        
+        <div className="links">
+          {filteredContactInfo.map((info, index) => (
+            <span key={index}>
+              {info === details.linkedIn ? (
+                <a href={`https://linkedin.com/in/${details.linkedIn}`} target="_blank" rel="noopener noreferrer">
+                  <span className="intro-link">
+                    <LinkedInSvg />
+                    <span>{details.linkedIn}</span>
+                  </span>
+                </a>
+              ) : (
+                info
+              )}
+
+              {index !== filteredContactInfo.length - 1 && (
+                <span className="separator"> | </span>
+              )}
+            </span>
+          ))}
+        </div>
       
         <Summary details={details}/>
         <h2>Work Experience</h2>

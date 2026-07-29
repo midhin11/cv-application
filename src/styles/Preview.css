@@ -89,7 +89,6 @@ li {
 .intro-link {
   display: inline-flex;
   gap: 5px;
-  align-items: flex-end;
 }
 
 .intro-link svg {
@@ -167,3 +166,15 @@ a {
   text-align: left;
 }
 
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.7rem;
+}
+
+.separator {
+  margin: 0 0.1rem;
+}
